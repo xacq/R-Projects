@@ -1,0 +1,55 @@
+\begin{thebibliography}{1}
+
+\bibitem{Chavent:98}
+Marie Chavent.
+\newblock A monothetic clustering method.
+\newblock {\em Pattern Recognition Letters}, 19(11):989--996, 1998.
+
+\bibitem{Ganganath:2014}
+Nuwan Ganganath, Chi-Tsun Cheng, and Chi.~K Tse.
+\newblock Data clustering with cluster size constraints using a modified
+  k-means algorithm.
+\newblock {\em Cyber-Enabled Distributed Computing and Knowledge Discovery
+  (CyberC), International Conference IEEE}, pages 158--161, 2014.
+
+\bibitem{Grossi:2015}
+Valerio Grossi, Anna Monreale, Mirco Nanni, Dino Pedreschi, and Franco Turini.
+\newblock Clustering formulation using constraint optimization.
+\newblock {\em Software Engineering and Formal Methods. Springer Berlin
+  Heidelberg}, pages 93--107, 2015.
+
+\bibitem{Halkidi:2001}
+Maria Halkidi, Yannis Batistakis, and Michalis Vazirgiannis.
+\newblock On clustering validation techniques.
+\newblock {\em Journal of Intelligent Information Systems}, 17(2):107--145,
+  2001.
+
+\bibitem{Hopner:2008}
+Frank H{\"o}ppner and Frank Klawonn.
+\newblock Clustering with size constraints.
+\newblock {\em Computational Intelligence Paradigms. Springer Berlin
+  Heidelberg}, pages 167--180, 2008.
+
+\bibitem{Rproy}
+{R Core Team}.
+\newblock {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2015.
+\newblock \url{https://www.R-project.org/}.
+
+\bibitem{Rebollo:2013}
+David Rebollo-Monedero, Marc Sol{\'e}, Jordi Nin, and Jordi Forn{\'e}.
+\newblock A modification of the k-means method for quasi-unsupervised learning.
+\newblock {\em Knowledge-Based Systems}, 37:176--185, 2013.
+
+\bibitem{Seg:07}
+Toby Segaran.
+\newblock {\em Programming collective intelligence: building smart web 2.0
+  applications}.
+\newblock O'Reilly Media, Inc., 2007.
+
+\bibitem{Tan:2005}
+Pang-Ning Tan, Michael Steinbach, and Vipin Kumar.
+\newblock {\em Introduction to data mining}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA, 2005.
+
+\end{thebibliography}

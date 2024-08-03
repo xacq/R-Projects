@@ -1,0 +1,273 @@
+% easychair.tex,v 3.1 2011/12/30
+%
+% Select appropriate paper format in your document class as
+% instructed by your conference organizers. Only withtimes
+% and notimes can be used in proceedings created by EasyChair
+%
+% The available formats are 'letterpaper' and 'a4paper' with
+% the former being the default if omitted as in the example
+% below.
+%
+\documentclass[procedia]{easychair}
+%\documentclass[debug]{easychair}
+%\documentclass[verbose]{easychair}
+%\documentclass[notimes]{easychair}
+%\documentclass[withtimes]{easychair}
+%\documentclass[a4paper]{easychair}
+%\documentclass[letterpaper]{easychair}
+
+% This provides the \BibTeX macro
+\usepackage{doc}
+\usepackage{makeidx}
+\usepackage{times}
+\usepackage{url}
+\usepackage{latexsym}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{fixmath}
+\usepackage{booktabs}
+
+% In order to save space or manage large tables or figures in a
+% landcape-like text, you can use the rotating and pdflscape
+% packages. Uncomment the desired from the below.
+%
+% \usepackage{rotating}
+% \usepackage{pdflscape}
+
+% If you plan on including some algorithm specification, we recommend
+% the below package. Read more details on the custom options of the
+% package documentation.
+%
+% \usepackage{algorithm2e}
+
+% Some of our commands for this guide.
+%
+\newcommand{\easychair}{\textsf{easychair}}
+\newcommand{\miktex}{MiK{\TeX}}
+\newcommand{\texniccenter}{{\TeX}nicCenter}
+\newcommand{\makefile}{\texttt{Makefile}}
+\newcommand{\latexeditor}{LEd}
+
+\def\procediaConference{99th Conference on Topics of
+  Superb Significance (COOL 2014)}
+
+%\makeindex
+
+%% Front Matter
+%%
+% Regular title as in the article class.
+%
+\title{Semi-Supervised Clustering Algorithms for Grouping Scientific Articles}
+
+% \titlerunning{} has to be set to either the main title or its shorter
+% version for the running heads. When processed by
+% EasyChair, this command is mandatory: a document without \titlerunning
+% will be rejected by EasyChair
+
+\titlerunning{Semi-Supervised Clustering Algorithms for Grouping Scientific Articles}
+
+% Authors are joined by \and. Their affiliations are given by \inst, which indexes into the list
+% defined using \institute
+%
+\author{
+    Diego F. Vallejo\inst{1}%\thanks{Designed and implemented the class style}
+\and
+    Paulina Morillo\inst{2}%\thanks{Did numerous tests and provided a lot of suggestions}
+\and
+    C{\`e}sar Ferri\inst{3}%\thanks{Masterminded EasyChair and created versions 3.0--3.4 of the class style}\\
+}
+
+% Institutes for affiliations are also joined by \and,
+\institute{
+  Universidad de las Am{\'e}ricas, Department of Mathematics, Quito, Ecuador\\
+  \email{d.vallejo@udlanet.ec}
+\and
+   Universidad Polit{\'e}cnica Salesiana, Research Group IDEIAGEOCA, Quito, Ecuador\\
+   \email{pmorillo@ups.edu.ec}\\
+\and
+   Universitat Polit{\`e}cnica de Val{\`e}ncia, DSIC, Val{\`e}ncia, Spain\\
+   \email{cferri@dsic.upv.es}\\
+ }
+%  \authorrunning{} %has to be set for the shorter version of the authors' names;
+% otherwise a warning will be rendered in the running heads. When processed by
+% EasyChair, this command is mandatory: a document without \authorrunning
+% will be rejected by EasyChair
+
+\authorrunning{Vallejo, Morillo and Ferri}
+
+\begin{document}
+
+\maketitle
+
+\keywords{Clustering with constraints, Size constraint, K-Medoids, Linear programming}
+
+\begin{abstract}
+Creating sessions in scientific conferences consists in grouping papers with common topics taking into account the size restrictions imposed
+by the conference schedule. Therefore, this problem can be considered as semi-supervised clustering of document based on their content.
+  This paper aims to propose modifications in traditional clustering algorithms to incorporate size constraints in each cluster. Specifically, two new algorithms are proposed to semi-supervised clustering, based on: binary integer linear programming with cannot-link constraints and a variation of the K-Medoids algorithm, respectively. 
+The applicability of the proposed semi-supervised clustering methods is illustrated by addressing the problem of automatic configuration of conference schedules by clustering articles by similarity. We include experiments, applying the new techniques, over real conferences datasets: ICMLA-2014, AAAI-2013 and AAAI-2014. The results of these experiments show that the new methods are able to solve practical and real problems.
+\end{abstract}
+
+%\setcounter{tocdepth}{2}
+%{\small
+%\tableofcontents}
+
+%\section{To mention}
+%
+%Processing in EasyChair - number of pages.
+%
+%Examples of how EasyChair processes papers. Caveats (replacement of EC
+%class, errors).
+
+
+%------------------------------------------------------------------------------
+\section{Introduction}
+\label{sect:introduction}
+
+Machine learning is defined as a subfield of artificial intelligence (AI) that addresses the study and construction of models capable of learning from the data \cite{Seg:07}. Unsupervised learning is a machine learning methodology whose task is to induce a function that presents hidden structure from unlabelled data. Clustering is an example task of unsupervised learning.
+Cluster analysis has the objective of dividing data objects into groups, so that objects within the same group are very similar to each other and different from objects in other groups \cite{Tan:2005}.
+
+
+In many cases the data or problems...
+%------------------------------------------------------------------------------
+\section{State of Art}
+\label{sect:stateofart}
+
+A first approximation of clustering algorithms with size constraints is presented in \cite{Hopner:2008}, where the goal is to find equal sized clusters as well as clusters of different sizes, through Fuzzy C-means algorithm (K-Means variation) and Lagrange
+multipliers. There are other many proposes that have focused on the modification of classical partition algorithms (such as K-Means) for the incorporation of size constraints, for instance: \cite{Rebollo:2013} and \cite{Ganganath:2014}. In \cite{Grossi:2015}  the authors propose a constraint programming formulation of some of the most famous clustering methods: K-medoids (does not use the dissimilarity matrix as input), DBSCAN and Label Propagation......
+
+%------------------------------------------------------------------------------
+
+\section{Clustering Algorithms with Size Constraints: CSCLP and K-MedoidsSC}
+\label{sect:algorithms}
+In this section we introduce the new semi-supervised algorithms that we will use in the experiments to solve the problem of clustering with size constraints.
+
+%------------------------------------------------------------------------------
+
+\subsection{CSCLP - Clustering Algorithm with Size Constraints and Linear Programming}
+\label{sect:csclp}
+To formalise our problem, we have used the following notation: let $x_{i}=\lbrace x_{1},x_{2},...,x_{n}\rbrace$ be a given dataset of $n$ objects, where $x_{i} \in \mathbb{R}^{m}$ and $i=1,2,...,n$. The size of a cluster $c_{j}$, obtained after a clustering process, is represented by its cardinality $|c_{j}|$. So to start the clustering process the user must specify the desire number of clusters $k$, for the generation of the initial points, and the size of the desired clusters $E_{j}=\lbrace e_{1},e_{2},...,e_{k}\rbrace$ where $j=1,2,...,k$. As mentioned above the $k$ initial points $u_{j}=\lbrace u_{1},u_{2},...,u_{k}\rbrace$ are also cannot-link constraints, which means that none of them can belong to the same cluster...
+
+After the initial $k$ points are determined, we need to fill the clusters by means of defining an optimisation problem. For that reason, we need to formalise properly as an ILP problem the clusters to form. Consider a matrix model, where $A_{nxk}$ is a boolean matrix, whose elements depict the belonging of the documents to a particular group. Each row of the array represent an object $x_{i}$ ($i=1,2,...,n$; $n=number$ $of$ $objects$) and each column is a cluster $c_{j}$ ($j=1,2,...,k$; $k=number$ $of$ $clusters$). If an element of this Boolean matrix $a_{ij}$ takes a value equal to $1$, it implies that the object $i$ belongs to cluster $j$, in a complementary way, $a_{ij}$ indicates that object $i$ does not belong to cluster $j$.
+$$A=
+\bordermatrix{
+            & c_1     & c_2    & \cdots & c_k   \cr
+    x_1     & 1       & 0      & 0      & 0     \cr
+    x_2     & 0       & 0      & 0      & 1     \cr
+    \vdots  & 0       & 1      & 0      & 0     \cr
+    \vdots  & 0       & 0      & 1      & 0     \cr
+    x_n     & 0       & 0      & 0      & 1     \cr
+            }_{nxk}
+$$ 
+
+The sum of elements of each row shows that an object can only belong to a single group: $\sum_{j=1}^k a_{ij}=1 ; \forall i=1,2,...,n $, this sum depicts the first constraints we are going to consider and we have called belonging constraints...... 
+
+Following this reasoning and given the matrix of dissimilarity, we pose the problem as a linear programming problem, the objective function ($O.F.$) is given by the expression: 
+$$O.F. = min (\sum_{j=1}^k \sum_{i=1}^n d_{ij}p_{ij})$$
+where $d_{ij}$ is the distance of the object $i$ to the initial object $j$ and $p_{i,j}$ is an array of belonging of each object $i$ to the cluster $j$.
+
+
+\section{Experiments}
+\label{sect:experiments}
+In this section we include some experiments in order to assess the performance of the proposed methods. We conduct two different settings of experiments. First, we test the validity of the methods over small and well-known datasets. Secondly, we analyse the performance over a document clustering scenario, i.e, we employ real datasets that contain data about papers of scientific conferences.
+
+%------------------------------------------------------------------------------
+
+\subsection{Validation of CSCLP and K-MedoidsSC Algorithms}
+\label{sect:validation}
+
+....Since clustering algorithms define groups that are not known a priori, irrespective of the clustering methods, the final partition of data requires some kind of evaluation \cite{Halkidi:2001}. For this reason, and once the feasibility of the two new proposals in terms of compliance with cluster sizes has been demonstrated, it is important to validate clustering performance. Table \ref{tb:tab2} includes results of four validation measures: Adjusted Rand Index (ARI), Normalised Mutual Information (NMI), Adjusted Mutual Information (AMI), and Silhouette Coefficient $S(i)$.
+
+\begin{table*}[]
+\centering
+\scalebox{0.67}{
+\begin{tabular}{cccccccccc}
+\toprule
+\multirow{2}{*}{{Datasets}} & \multirow{2}{*}{{Algorithm}} & \multicolumn{4}{c}{{Farthest Neighbour Technique}}    & \multicolumn{4}{c}{{Buckshot Algorithm}}             \\ 
+                                   &                                     & {ARI} & {AMI} & {NMI} & $\mathbold S (\mathbold i)$ & {ARI} & {AMI} & {NMI} & $\mathbold S (\mathbold i)$ \\ \midrule
+\multirow{4}{*}{{Iris}}     & {AHC-FPA*}                   & 0.674        & 0.735        & 0.760        & 0.659           & 0.674        & 0.735        & 0.760        & 0.659           \\  
+                                   & {K-Medoids}                  & 0.904        & 0.897        & 0.900        & 0.737           & 0.904        & 0.897        & 0.900        & 0.737           \\ 
+                                   & {CSCLP}                      & 0.886        & 0.861        & 0.862        & 0.721           & 0.886        & 0.861        & 0.862        & 0.733           \\ 
+                                   & {K-MedoidsSC}                & 0.818        & 0.800        & 0.803        & 0.717           & 0.886        & 0.861        & 0.862        & 0.734           \\ \midrule
+\multirow{4}{*}{{Wine}}     & {AHC-FPA*}                   & 0.059        & 0.137        & 0.186        & 0.728           & 0.059        & 0.137        & 0.186        & 0.728           \\ 
+                                   & {K-Medoids}                  & 0.347        & 0.363        & 0.373        & 0.758           & 0.208        & 0.196        & 0.221        & 0.757           \\  
+                                   & {CSCLP}                      & 0.236        & 0.239        & 0.247        & 0.655           & 0.331        & 0.371        & 0.378        & 0.669           \\ 
+                                   & {K-MedoidsSC}                & 0.302        & 0.297        & 0.304        & 0.716           & 0.347        & 0.374        & 0.380        & 0.699           \\ \midrule
+\multirow{4}{*}{{Seeds}}    & {AHC-FPA*}                   & 0.223        & 0.286        & 0.379        & 0.659           & 0.223        & 0.286        & 0.379        & 0.659           \\ 
+                                   & {K-Medoids}                  & 0.264        & 0.305        & 0.330        & 0.606           & 0.264        & 0.305        & 0.330        & 0.606           \\ 
+                                   & {CSCLP}                      & 0.233        & 0.268        & 0.275        & 0.420           & 0.231        & 0.249        & 0.256        & 0.456           \\ 
+                                   & {K-MedoidsSC}                & 0.149        & 0.179        & 0.186        & 0.348           & 0.162        & 0.189        & 0.196        & 0.276           \\ \midrule
+\multicolumn{10}{l}{* Does not use any technique to select initial points}                                                                                                                           \\ \bottomrule
+\end{tabular}}
+\caption{Clustering validation results in datasets: Iris, Wine and Seeds, with algorithms: AHC-FPA, K-Medoids, CSCLP and K-MedoidsSC.}
+\label{tb:tab2}
+
+\end{table*}
+
+
+....The left side of Figure \ref{fig:validation3}, shows the silhouette diagram of Iris dataset, and the right side indicates the dataset configuration in $\mathbb{R}^{2}$.
+
+\begin{figure}[htb]
+\centering 
+\includegraphics[width=0.7\textwidth]{./figuras/validation3}
+\caption{Clustering in Iris dataset with CSCLP algorithm (Initial points: Buckshot algorithm).} 
+\label{fig:validation3}
+\end{figure}
+
+The results are notably favourable in Iris dataset, where distribution of the groups is heterogeneous and where we can clearly distinguish two groups \cite{Chavent:98} (see right plot of Figure\ref{fig:validation3}). But also the results in the other two datasets, Wine and Seeds, are positive according to the internal and external validation indices. It demonstrates that the algorithmic proposals presented in this paper are valid....
+
+....We also have developed a web system, called ADoCS, implementing the CSCLP algorithm that could help programs chairs to organise conference program schedules. This tool could be also useful to other related tasks in clustering documents with restrictions, such as find groups of papers to be assigned to reviews. The web tool can be used free of charge in the url: \url{https://dievalhu.shinyapps.io/shiny/}. 
+ADoCS tool has been implemented totally with R \cite{Rproy}.
+
+
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Fri Apr 14 16:51:09 2017
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & z value & Pr($>|$z$|$) \\ 
+  \hline
+(Intercept) & 2.9823 & 0.4857 & 6.14 & 0.0000 \\ 
+  x1 & -1.3160 & 0.1409 & -9.34 & 0.0000 \\ 
+  x2 & -0.0445 & 0.0082 & -5.45 & 0.0000 \\ 
+  x3 & -0.3646 & 0.1265 & -2.88 & 0.0039 \\ 
+  x4 & -0.0371 & 0.1196 & -0.31 & 0.7561 \\ 
+  x5 & 2.6374 & 0.2194 & 12.02 & 0.0000 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+%------------------------------------------------------------------------------
+
+\section{Conclusions}
+\label{sect:conclusions}
+
+In this paper we have presented two novel algorithms for semi-supervised clustering that allow constraint the sizes of the clusters. The first one, CSCLP algorithm, is based on optimisation techniques, while the second, K-MedoidsSC algorithm, represents a variation of the original K-Medoids algorithm for considering size constrains in the clusters....
+
+%------------------------------------------------------------------------------
+% Refs:
+\label{sect:bib}
+\bibliographystyle{plain}
+%\bibliographystyle{alpha}
+%\bibliographystyle{unsrt}
+%\bibliographystyle{abbrv}
+\bibliography{easychair}
+
+
+%------------------------------------------------------------------------------
+% Index
+%\printindex
+
+%------------------------------------------------------------------------------
+\end{document}
+
+% EOF
